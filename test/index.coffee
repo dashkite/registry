@@ -1,13 +1,40 @@
 import assert from "@dashkite/assert"
-import {test, success} from "@dashkite/amen"
+import { test, success } from "@dashkite/amen"
 import print from "@dashkite/amen-console"
+
+import $ from "../src"
 
 do ->
 
-  print await test "Registry", [
+  print await test "Helium", [
 
-    test "todo"
+    test "get", ->
+      assert ( $.get "foo" ).then?
+
+    test "set", ->
+      $.set "foo", "bar"
+      assert.equal "bar", await $.get "foo"
+
+    test "has", ->
+      assert $.has "foo"
+
+    test "hasValue", [
+
+      test "no value", ->
+        assert ! $.hasValue "a"
+
+      test "promised value", ->
+        $.get "a"
+        assert ! $.hasValue "a"
+
+      test "a value", ->
+        $.set "b", 1
+        assert.equal $.hasValue "b"
+
+    ]
+      
 
   ]
+
 
   process.exit if success then 0 else 1
