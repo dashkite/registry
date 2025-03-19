@@ -1,6 +1,6 @@
 import Value from "./value"
 
-$ = globalThis[ "@dashkite/helium" ] ?= new Map
+$ = globalThis[ "@dashkite/registry" ] ?= new Map
 
 Registry =
 
@@ -23,8 +23,6 @@ Registry =
     else
       $.set key, Value.from value
       value
-
-
 
 export default Registry
 
