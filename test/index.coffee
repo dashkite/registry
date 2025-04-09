@@ -32,6 +32,15 @@ do ->
         assert.equal $.hasValue "b"
 
     ]
+
+    test "sync", [
+
+      test "get", ->
+        $.set "sync a", true
+        assert $.sync.get "sync a"
+        assert.throws ->
+          $.sync.get "sync b"
+    ]
       
 
   ]
