@@ -1,6 +1,6 @@
 {
   "name": "@dashkite/registry",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "In-memory global key-value store",
   "keywords": [],
   "homepage": "https://github.com/dashkite/registry#readme",
